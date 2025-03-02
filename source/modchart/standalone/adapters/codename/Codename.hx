@@ -78,7 +78,7 @@ class Codename implements IAdapter {
 
 	public function getHoldParentTime(arrow:FlxSprite) {
 		final note:Note = cast arrow;
-		return note.strumTime;
+		return note.sustainParent.strumTime;
 	}
 
 	// im so fucking sorry for those conditionals

@@ -130,6 +130,10 @@ class Note extends FlxSprite
 			}
 		}
 
+		// work around to set the `sustainParent`
+		if (isSustainNote)
+			sustainParent = prevNote.isSustainNote ? prevNote.sustainParent : prevNote;
+
 		x += 50;
 		// MAKE SURE ITS DEFINITELY OFF SCREEN?
 		y -= 2000;
