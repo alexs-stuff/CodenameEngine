@@ -54,6 +54,13 @@ class Note extends FlxSprite
 	public var nextSustain:Note;
 
 	/**
+	 * The parent of the sustain.
+	 * 
+	 * If this note is not sustain, this will be null.
+	 */
+	public var sustainParent:Null<Note>;
+
+	/**
 	 * Name of the splash.
 	 */
 	public var splash:String = "default";
