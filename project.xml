@@ -148,6 +148,9 @@
 	<!-- Comment this out to disable support for Nape integration (flixel.addons.nape) (reduces compile times) !-->
 	<define name="NAPE_ENABLED" />
 
+	<!-- Comment this out to disable user customization!-->
+	<define name="USER_CUSTOMIZATION_ENABLED" />
+
 	<!-- Comment this out to disable video cutscene support, in case of compilation errors. !-->
 	<section if="cpp">
 		<define name="VIDEO_CUTSCENES" if="desktop || android" />

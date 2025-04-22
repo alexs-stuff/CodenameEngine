@@ -18,6 +18,7 @@ class GameplayOptions extends OptionsScreen {
 			"Ghost Tapping",
 			"If unchecked, trying to hit any strum that have no note that can be hit will cause a miss.",
 			"ghostTapping"));
+		
 		add(offsetSetting = new NumOption(
 			"Song Offset",
 			"Changes the offset that songs should start with.",

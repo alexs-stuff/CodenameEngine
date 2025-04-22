@@ -9,6 +9,14 @@ import funkin.backend.utils.*;
 import funkin.backend.system.Logs;
 import funkin.options.Options;
 import funkin.game.PlayState;
+
+import modchart.events.*;
+import modchart.events.types.*;
+import modchart.modifiers.*;
+import modchart.modifiers.false_paradise.*;
+import modchart.Manager;
+import modchart.Modifier;
+
 import funkin.backend.scripting.EventManager;
 
 import openfl.utils.Assets;

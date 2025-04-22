@@ -2,17 +2,36 @@ package funkin.menus;
 
 import flixel.util.FlxColor;
 import flixel.text.FlxText;
+import funkin.backend.system.framerate.Framerate;
+import funkin.editors.ui.*;
 import funkin.backend.FunkinText;
 
-class BetaWarningState extends MusicBeatState {
+class BetaWarningState extends UIState {
 	var titleAlphabet:Alphabet;
 	var disclaimer:FunkinText;
 
 	var transitioning:Bool = false;
 
+	public function new() {
+		super();
+	}
 	public override function create() {
 		super.create();
 
+		Framerate.offset.y = 0;
+		if (FlxG.state != null && FlxG.state is UIState) {
+		FlxG.state.openSubState(new UIWarningSubstate("WARNING!", "This engine is still in a beta state.", [
+			{
+				label: "I understand",
+				color: 0x59D935,
+				onClick: function(_) {
+					trace("clicked");
+				//	FlxG.camera.stopFX(); FlxG.camera.visible = false;
+				//	goToTitle();
+				}
+			}
+		]));
+	}
 		titleAlphabet = new Alphabet(0, 0, "WARNING", true);
 		titleAlphabet.screenCenter(X);
 		add(titleAlphabet);
@@ -48,6 +67,11 @@ class BetaWarningState extends MusicBeatState {
 				FlxG.camera.fade(FlxColor.BLACK, 2.5, false, goToTitle);
 			});
 		}
+	}
+
+	
+	override function destroy() {
+		super.destroy();
 	}
 
 	private function goToTitle() {

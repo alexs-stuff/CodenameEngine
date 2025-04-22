@@ -24,6 +24,13 @@ class OptionsMenu extends TreeMenu {
 			desc: 'Change Appearance options such as Flashing menus...',
 			state: AppearanceOptions
 		},
+		#if USER_CUSTOMIZATION_ENABLED
+		{
+			name: 'Engine Customization >',
+			desc: 'Change Engine Customization options such as Icon Bops...',
+			state: CustomizationOptions
+		},
+		#end
 		#if MODCHARTING_FEATURES
 		{
 			name: 'Modchart Settings >',

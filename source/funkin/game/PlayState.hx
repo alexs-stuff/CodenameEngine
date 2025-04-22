@@ -7,6 +7,7 @@ import funkin.backend.chart.EventsData;
 import funkin.backend.system.RotatingSpriteGroup;
 import funkin.editors.charter.Charter;
 import funkin.savedata.FunkinSave;
+import modchart.Manager;
 import flixel.graphics.FlxGraphic;
 import funkin.backend.chart.Chart;
 import funkin.backend.chart.ChartData;
@@ -89,6 +90,8 @@ class PlayState extends MusicBeatState
 	 * Array of all the players in the stage.
 	 */
 	public var strumLines:FlxTypedGroup<StrumLine> = new FlxTypedGroup<StrumLine>();
+
+	public var modchartInstance:Manager;
 
 	/**
 	 * Death counter on current week (or song if from freeplay).
@@ -373,6 +376,7 @@ class PlayState extends MusicBeatState
 	 */
 	public var camHUDZoomLerp:Float = 0.05;
 
+	public var directionalCamera:Bool = false;
 	/**
 	 * Zoom for the pixel assets.
 	 */
@@ -567,6 +571,7 @@ class PlayState extends MusicBeatState
 		camHUD.bgColor.alpha = 0;
 
 		downscroll = Options.downscroll;
+		directionalCamera = Options.directionalCamera;
 
 		persistentUpdate = true;
 		persistentDraw = true;
@@ -701,6 +706,9 @@ class PlayState extends MusicBeatState
 
 		splashHandler = new SplashHandler();
 		add(splashHandler);
+
+		modchartInstance = new Manager();
+		add(modchartInstance);
 
 		scripts.set("SONG", SONG);
 		scripts.load();
